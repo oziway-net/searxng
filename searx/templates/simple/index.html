@@ -4,5 +4,89 @@
 <div class="index">
     <div class="title"><h1>SearXNG</h1></div>
     {% include 'simple/simple_search.html' %}
+    
+    <div class="oziway-promo-section">
+        <div class="oziway-tagline">
+            Sponsored by <a href="https://oziway.com" target="_blank">oziway.com</a> AI Powered Price Predictions
+        </div>
+        
+        <div class="oziway-links-list">
+            <ul>
+                <li>
+                    <strong>AI Powered Price Predictions:</strong> 
+                    <a href="https://oziway.com/" target="_blank">https://oziway.com/</a>
+                </li>
+                <li>
+                    <strong>BTC/Bitcoin AI Powered Price Predictions:</strong> 
+                    <a href="https://oziway.com/app/chart/index.php?symbol=BTC" target="_blank">https://oziway.com/app/chart/index.php?symbol=BTC</a>
+                </li>
+                <li>
+                    <strong>ETH/Ethereum AI Powered Price Predictions:</strong> 
+                    <a href="https://oziway.com/app/chart/index.php?symbol=ETH" target="_blank">https://oziway.com/app/chart/index.php?symbol=ETH</a>
+                </li>
+                <li>
+                    <strong>XRP AI Powered Price Predictions:</strong> 
+                    <a href="https://oziway.com/app/chart/index.php?symbol=XRP" target="_blank">https://oziway.com/app/chart/index.php?symbol=XRP</a>
+                </li>
+                <li>
+                    <strong>Oziway dashboard:</strong> 
+                    <a href="https://oziway.com/dashboard/" target="_blank">https://oziway.com/dashboard/</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
+
+<style>
+    .oziway-promo-section {
+        max-width: 650px;
+        margin: 25px auto 0 auto;
+        padding: 0 15px;
+        font-family: sans-serif;
+    }
+    .oziway-tagline {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 12px;
+    }
+    .oziway-tagline a {
+        color: #2e7d32;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .oziway-links-list {
+        background: #fdfdfd;
+        border: 1px solid #eaeaea;
+        border-radius: 8px;
+        padding: 12px 18px;
+    }
+    .oziway-links-list ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .oziway-links-list li {
+        font-size: 12px;
+        color: #444;
+        margin-bottom: 8px;
+        line-height: 1.4;
+        word-break: break-all;
+    }
+    .oziway-links-list li:last-child {
+        margin-bottom: 0;
+    }
+    .oziway-links-list strong {
+        color: #222;
+        display: inline-block;
+        margin-right: 4px;
+    }
+    .oziway-links-list a {
+        color: #1a0dab;
+        text-decoration: none;
+    }
+    .oziway-links-list a:hover {
+        text-decoration: underline;
+    }
+</style>
 {% endblock %}
