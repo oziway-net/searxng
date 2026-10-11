@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="endpoint" content="{{ endpoint }}">
-  <meta name="description" content="SearXNG — a privacy-respecting, open metasearch engine">
-  <meta name="keywords" content="SearXNG, search, search engine, metasearch, meta search">
+  
+  <!-- Oziway Brand & Open Graph Metadata for Social Previews -->
+  <title>Oziway SearXNG</title>
+  <meta property="og:title" content="Oziway SearXNG">
+  <meta property="og:description" content="AI Powered Price Predictions & Privacy-Respecting Search">
+  <meta property="og:image" content="https://oziway.net/logo.png">
+  <meta property="og:url" content="https://oziway.net/">
+  <meta property="og:type" content="website">
+
+  <meta name="description" content="Oziway SearXNG — AI Powered Price Predictions and Metasearch Engine">
+  <meta name="keywords" content="Oziway, SearXNG, search, AI price predictions">
   <meta name="generator" content="searxng/{{ searxng_version }}">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noarchive">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}{% endblock %}{{ instance_name }}</title>
+
   <script type="module" src="{{ url_for('static', filename='sxng-core.min.js') }}" client_settings="{{ client_settings }}"></script>
   {% block meta %}{% endblock %}
   {% if rtl %}
@@ -24,14 +33,42 @@
   <link rel="stylesheet" href="{{ url_for('client_token', token=link_token) }}" type="text/css">
   {% endif %}
   {% block head %}
-  <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ opensearch_url }}">
+  <link title="Oziway SearXNG" type="application/opensearchdescription+xml" rel="search" href="{{ opensearch_url }}">
   {% endblock %}
-  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" sizes="any">
-  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+  
+  <!-- Favicons -->
+  <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}" sizes="any">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/logo.png') }}">
   <link rel="manifest" href="{{ url_for('manifest') }}" />
 </head>
 <body class="{{ endpoint }}_endpoint" >
+  <header class="oziway-top-bar">
+    <a href="https://oziway.net" class="oziway-logo-link">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Oziway Logo">
+    </a>
+  </header>
+  <style>
+    .oziway-top-bar {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      z-index: 1000;
+    }
+    .oziway-logo-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+    .oziway-top-bar img {
+      height: 28px;
+      width: auto;
+    }
+  </style>
   <main id="main_{{  self._TemplateReference__context.name|replace("simple/", "")|replace(".html", "") }}" class="{{body_class}}">
     {% if errors %}
         <div class="dialog-error" role="alert">
@@ -87,5 +124,23 @@
         {% endfor %}
     </p>
   </footer>
+
+<script>
+  // Pre-populate default recent searches if none exist in localStorage
+  try {
+    const storageKey = 'searxng_recent_searches';
+    if (!localStorage.getItem(storageKey)) {
+      const defaultSearches = [
+        "BTC AI Powered Price Predictions oziway.com",
+        "ETH AI Powered Price Predictions oziway.com",
+        "XRP AI Powered Price Predictions oziway.com"
+      ];
+      localStorage.setItem(storageKey, JSON.stringify(defaultSearches));
+    }
+  } catch (e) {
+    // Handle localStorage privacy restrictions gracefully
+  }
+</script>
+
 </body>
 </html>
